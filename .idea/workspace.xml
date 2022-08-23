@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f3e830c0-5ddf-4b33-8c43-ae584b9f6cfb" name="Changes" comment="">
+    <list default="true" id="f3e830c0-5ddf-4b33-8c43-ae584b9f6cfb" name="Changes" comment="init commit">
       <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
@@ -220,8 +220,16 @@
       <workItem from="1661097668570" duration="9104000" />
       <workItem from="1661160642031" duration="15339000" />
       <workItem from="1661192579575" duration="6734000" />
-      <workItem from="1661277983184" duration="626000" />
+      <workItem from="1661277983184" duration="953000" />
     </task>
+    <task id="LOCAL-00001" summary="init commit">
+      <created>1661278942340</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1661278942351</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,5 +245,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="init commit" />
   </component>
 </project>
