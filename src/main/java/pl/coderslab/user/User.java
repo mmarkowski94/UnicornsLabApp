@@ -2,9 +2,12 @@ package pl.coderslab.user;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.UniqueElements;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.web.context.WebApplicationContext;
 import pl.coderslab.projects.Project;
 import pl.coderslab.skill.Skill;
-import pl.coderslab.userDetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -16,6 +19,8 @@ import java.util.List;
 @Setter
 @Entity
 @Table(name = "users")
+@Scope(value = WebApplicationContext.SCOPE_SESSION,
+        proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class User {
 
     @Id
@@ -49,4 +54,6 @@ public class User {
     )
     private List<Skill> skills = new ArrayList<>();
 }
+
+//mail powinnen byc unikalny
 

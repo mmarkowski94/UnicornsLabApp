@@ -8,16 +8,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Logowanie</title>
 </head>
 <body>
 <form method="post" action="user/login">
     <label>Zaloguj się </label><br/>
 
     email
-    <input name= "email" value="email" />
+    <input type="text" name="email" placeholder="Podaj email"/><br>
     password
-    <input name = "password" value="password" />
+    <input type="password" name ="password" placeholder="Podaj hasło"/>
     <input type="submit" value="Zaloguj">
 
 </form>

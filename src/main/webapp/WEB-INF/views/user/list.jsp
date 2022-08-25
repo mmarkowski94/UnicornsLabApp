@@ -5,7 +5,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Zespół</title>
 </head>
 <body>
 <a href="<c:url value="/user/register"/>">Dołącz</a>

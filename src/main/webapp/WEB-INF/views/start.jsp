@@ -11,11 +11,11 @@
 
     <li><a href=""> O nas </a></li>
     <li><a href="/user/list">Zespoł</a></li>
-    <li><a href="project/list">Projekty</a></li>
+    <li><a href="/project/list">Projekty</a></li>
     <li><a href="">Kontakt</a></li>
     <li><a href="/user/register">Dołącz do nas</a></li>
-    <li><a href="user/login">Logowanie</a></li>
-
+    <li><a href="/user/login">Logowanie</a></li>
+    <li><a href="/skill/list">Lista umiejętności</a></li>
 </ul>
 <hr>
 </body>

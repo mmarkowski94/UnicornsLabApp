@@ -10,6 +10,7 @@
     <tr>
         <th>name</th>
         <th>description</th>
+        <th>team</th>
 
     </tr>
     <c:forEach items="${projects}" var="project">

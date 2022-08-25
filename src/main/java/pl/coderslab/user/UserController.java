@@ -19,10 +19,12 @@ import java.util.Optional;
 @Controller
 @RequestMapping("/user")
 @RequiredArgsConstructor
+@SessionAttributes("user")
 public class UserController {
 
 
-    private final Repository repository;
+    private final UserRepository userRepository;
+    private final UserDetailsRepository userDetailsRepository;
 
     @GetMapping("/register")
     public String add(Model model) {
@@ -35,39 +37,41 @@ public class UserController {
         if (result.hasErrors()) {
             return "user/register";
         }
-        repository.save(user);
-        return "redirect:user/login";
+        UserDetails userDetails = new UserDetails();
+        userDetailsRepository.save(userDetails);
+        user.setDetails(userDetails);
+        userRepository.save(user);
+        return "redirect:/user/login";
     }
 
     @GetMapping("/list")
     public String list(Model model) {
-        model.addAttribute("users", repository.findAll());
+        model.addAttribute("users", userRepository.findAll());
         return "user/list";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteBook(@PathVariable long id) {
-        repository.deleteById(id);
-        return "redirect:user/list";
+        userRepository.deleteById(id);
+        return "redirect:/user/list";
     }
 
     @GetMapping("/panel")
-    public String panel() {
+    public String panel(Model model) {
         return "user/panel";
     }
 
     @GetMapping("/login")
-    public String login() {
+    public String login(HttpServletRequest request) {
+        HttpSession session = request.getSession();
         return "user/login";
     }
 
     @PostMapping("/login")
-    @Scope(value = WebApplicationContext.SCOPE_SESSION)
-    public String login(HttpServletRequest request) {
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
-        HttpSession session = request.getSession();
-        List<User> users = repository.findAll();
+    public String login(@RequestParam("email") String email,
+                        @RequestParam("password") String password,
+                        HttpSession session) {
+        List<User> users = userRepository.findAll();
 
         for (User user : users) {
             if (email.equals(user.getEmail()) && password.equals(user.getPassword())) {
@@ -75,9 +79,9 @@ public class UserController {
             }
         }
         if (session.getAttribute("user") != null) {
-            return "start";
+            return "redirect:/";
         } else {
-            return "redirect:/login";
+            return "redirect:/user/login";
         }
     }
 }
