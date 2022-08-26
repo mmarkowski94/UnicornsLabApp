@@ -4,15 +4,15 @@
 <html>
 <head>
     <title>UnicornsLab</title>
-    <link href="src/main/webapp/theme/style.css" rel="stylesheet" type="text/css">
+    <link href="<c:url value="/resources/theme/style.css" />" rel="stylesheet">
 </head>
 <body>
+<h1 class="title">Witamy w UnicornsLab</h1>
 <ul class="menu">
-
     <li><a href=""> O nas </a></li>
     <li><a href="/user/list">Zespoł</a></li>
     <li><a href="/project/list">Projekty</a></li>
-    <li><a href="">Kontakt</a></li>
+    <li><a href="/message/send">Kontakt</a></li>
     <li><a href="/user/register">Dołącz do nas</a></li>
     <li><a href="/user/login">Logowanie</a></li>
     <li><a href="/skill/list">Lista umiejętności</a></li>
