@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: mmarkowski
-  Date: 22.08.2022
-  Time: 21:11
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -13,5 +7,20 @@
 <body>
 <p>panel</p>
 <p>Cześć ${user.name}</p>
+
+
+            Twoj profil<br>
+<br>
+
+
+
+            Stanowisko:
+            <td>${details.position}</td><br>
+            Zespoł:
+            <td>${details.team}</td><br>
+            Opis:
+            ${details.description}<br>
+
+
 </body>
 </html>

@@ -77,6 +77,11 @@ public class UserController {
     @GetMapping("/panel")
     public String userPage(Model model, @SessionAttribute("loggedUser") User user) {
         model.addAttribute("user", user);
+        UserDetails userDetails = new UserDetails();
+        userDetails.setDescription(user.getDetails().getDescription());
+        userDetails.setTeam(user.getDetails().getTeam());
+        userDetails.setPosition(user.getDetails().getPosition());
+        model.addAttribute("details", userDetails);
         return "user/panel";
     }
 

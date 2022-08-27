@@ -5,4 +5,5 @@ import org.springframework.data.jpa.repository.Query;
 import pl.coderslab.user.UserDetails;
 
 public interface UserDetailsRepository extends JpaRepository<UserDetails,Long> {
+
 }
