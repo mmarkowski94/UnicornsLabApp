@@ -12,5 +12,6 @@
 </head>
 <body>
 <p>panel</p>
+<p>Cześć ${user.name}</p>
 </body>
 </html>

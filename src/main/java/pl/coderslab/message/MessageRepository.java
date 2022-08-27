@@ -10,4 +10,5 @@ import java.util.Optional;
 public interface MessageRepository extends JpaRepository<Message,Long> {
 
     List<Message> findAllByReadStatus( boolean read);
+
 }

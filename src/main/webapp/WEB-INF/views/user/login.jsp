@@ -4,13 +4,13 @@
     <title>Logowanie</title>
 </head>
 <body>
-<form method="post" action="user/login">
+<form method="post" action="/user/login">
     <label>Zaloguj się </label><br/>
 
     email
     <input type="text" name="email" placeholder="Podaj email"/><br>
     password
-    <input type="password" name ="password" placeholder="Podaj hasło"/>
+    <input type="password" name ="password" placeholder="Podaj hasło"/><br>
     <input type="submit" value="Zaloguj">
 
 </form>

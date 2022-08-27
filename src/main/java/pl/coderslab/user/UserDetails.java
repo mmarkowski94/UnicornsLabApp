@@ -18,8 +18,9 @@ public class UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String position = "brak informacji";
-    private String team = "brak informacji";
-    private String description = "brak informacji";
+    private String position = "";
+    private String team = "";
+    private String description = "";
+    //lepszy widok np.brak informacji zmiar "" mozna zrobic z poziomu frontu
 }
 

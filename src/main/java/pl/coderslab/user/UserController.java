@@ -1,11 +1,11 @@
 package pl.coderslab.user;
 
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.WebApplicationContext;
 
@@ -15,11 +15,10 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
-
 @Controller
 @RequestMapping("/user")
 @RequiredArgsConstructor
-@SessionAttributes("user")
+@SessionAttributes("loggedUser")
 public class UserController {
 
 
@@ -56,11 +55,6 @@ public class UserController {
         return "redirect:/user/list";
     }
 
-    @GetMapping("/panel")
-    public String panel(Model model) {
-        return "user/panel";
-    }
-
     @GetMapping("/login")
     public String login() {
         return "user/login";
@@ -69,20 +63,35 @@ public class UserController {
     @PostMapping("/login")
     public String login(@RequestParam String email,
                         @RequestParam String password,
-                        HttpSession session) {
-        List<User> users = userRepository.findAll();
+                        Model model) {
 
-        for (User user : users) {
-            if (email.equals(user.getEmail())) {
-                    //&& password.equals(user.getPassword())) {
-                session.setAttribute("user", user);
+        if (userRepository.existsByEmail(email)) {
+            if (userRepository.findByEmail(email).getPassword().equals(password)) {
+                model.addAttribute("loggedUser", userRepository.findByEmail(email));
                 return "redirect:/";
             }
         }
-        if (session.getAttribute("user") != null) {
-            return "redirect:/";
-        } else {
-            return "redirect:/user/login";
-        }
+        return "user/login";
     }
+
+    @GetMapping("/panel")
+    public String userPage(Model model, @SessionAttribute("loggedUser") User user) {
+        model.addAttribute("user", user);
+        return "user/panel";
+    }
+
+    @ExceptionHandler(ServletRequestBindingException.class)
+    public String handle() {
+
+        return "redirect:/user/login";
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "redirect:/";
+        //dont work
+    }
+
+
 }

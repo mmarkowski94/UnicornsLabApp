@@ -19,8 +19,6 @@ import java.util.List;
 @Setter
 @Entity
 @Table(name = "users")
-@Scope(value = WebApplicationContext.SCOPE_SESSION,
-        proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class User {
 
     @Id

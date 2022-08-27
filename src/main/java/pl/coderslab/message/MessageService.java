@@ -1,4 +1,17 @@
 package pl.coderslab.message;
 
-public class MessageService {
+import java.util.List;
+
+public interface MessageService {
+
+    List<Message> getMessages();
+
+    Message getMessageById(Long id);
+
+    void addMessage(Message message);
+
+    void updateMessage(Long id, Message message);
+
+    void deleteMessage(Long id);
 }
+
