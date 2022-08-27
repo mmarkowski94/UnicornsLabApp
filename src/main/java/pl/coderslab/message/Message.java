@@ -4,25 +4,31 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "messages")
+@Table( name = "messages")
 public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotEmpty
     private String title;
+    @NotEmpty
     private String sender;
-    private LocalDateTime timeOfSending;
+    private LocalDateTime timeSending;
+    @NotEmpty
     private String contents;
-    private boolean read = false;
+    private boolean readStatus = false;
 
     @PrePersist
     public void prePersist() {
-        timeOfSending = LocalDateTime.now();
+        timeSending = LocalDateTime.now();
     }
+
+
 }

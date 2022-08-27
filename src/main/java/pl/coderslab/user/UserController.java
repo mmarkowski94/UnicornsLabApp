@@ -62,20 +62,21 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    public String login(HttpServletRequest request) {
-        HttpSession session = request.getSession();
+    public String login() {
         return "user/login";
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam("email") String email,
-                        @RequestParam("password") String password,
+    public String login(@RequestParam String email,
+                        @RequestParam String password,
                         HttpSession session) {
         List<User> users = userRepository.findAll();
 
         for (User user : users) {
-            if (email.equals(user.getEmail()) && password.equals(user.getPassword())) {
+            if (email.equals(user.getEmail())) {
+                    //&& password.equals(user.getPassword())) {
                 session.setAttribute("user", user);
+                return "redirect:/";
             }
         }
         if (session.getAttribute("user") != null) {

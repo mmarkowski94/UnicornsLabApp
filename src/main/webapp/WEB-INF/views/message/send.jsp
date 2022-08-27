@@ -5,7 +5,7 @@
     <title>Kontakt</title>
 </head>
 <body>
-<form:form method="post" modelAttribute="message" action="/message/send">
+<form:form method="post" modelAttribute="message">
     <label>Skontaktuj się z nami </label><br/>
     Podaj temat wiadomości<br/>
     <form:input path="title" />
@@ -15,7 +15,7 @@
     <form:errors path="sender"/>
     Wpisz tresć swojej wiadomości<br/>
     <form:textarea path="contents"/>
-    <form:errors path="contents"/>
+    <form:errors path="contents"/><br/>
     <input type="submit" value="Wyślj">
 </form:form>
 </body>

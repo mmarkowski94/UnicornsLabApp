@@ -1,23 +1,24 @@
 package pl.coderslab.message;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 
+import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/message")
 @RequiredArgsConstructor
 public class MessageController {
 
-    private MessageRepository messageRepository;
+    private final MessageRepository messageRepository;
 
     @GetMapping("/send")
     public String add(Model model) {
@@ -36,8 +37,14 @@ public class MessageController {
 
     @GetMapping("/panel")
     public String list(Model model) {
-        model.addAttribute("messagesReaded", messageRepository.findAllByRead(true));
-        model.addAttribute("messagesNoReaded", messageRepository.findAllByRead(false));
-        return "message/panel";
+        model.addAttribute("messagesReaded", messageRepository.findAllByReadStatus(true));
+        model.addAttribute("messagesNoReaded", messageRepository.findAllByReadStatus(false));
+        return "message/messagePanel";
+    }
+
+    @GetMapping(value = "/edit/{id}")
+    public String read (@PathVariable long id) {
+
+        return "redirect:/message/panel";
     }
 }
