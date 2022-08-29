@@ -11,7 +11,9 @@ import org.springframework.web.context.WebApplicationContext;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.transaction.Transactional;
 import javax.validation.Valid;
+import java.beans.Transient;
 import java.util.List;
 import java.util.Optional;
 
@@ -75,11 +77,13 @@ public class UserController {
     }
 
     @GetMapping("/panel")
+    @Transactional
     public String userPage(Model model, @SessionAttribute("loggedUser") User user) {
-        model.addAttribute("user", user);
-        model.addAttribute("details", user.getDetails());
-        model.addAttribute("skills", user.getSkills());
-        //model.addAttribute("projects",user.getProjects());
+        User userData = userRepository.getOne(user.getId());
+        model.addAttribute("user", userData);
+        model.addAttribute("details", userData.getDetails());
+        model.addAttribute("skills", userData.getSkills());
+        model.addAttribute("projects",userData.getProjects());
         return "user/panel";
     }
 

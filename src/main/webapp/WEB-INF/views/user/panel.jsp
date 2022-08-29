@@ -40,7 +40,7 @@
     <tr>
         <th>Lista projektow</th>
     </tr>
-    <c:forEach items="${user.projects}" var="project">
+    <c:forEach items="${projects}" var="project">
         <tr>
             <td>${project.name}</td>
         </tr>

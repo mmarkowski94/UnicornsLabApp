@@ -17,6 +17,8 @@
             <td>${messageToRead.sender}</td>
             <td>${messageToRead.contents}</td>
             <td>${messageToRead.timeSending}</td>
+            <td><a href="<c:url value="/message/panel/change/${messageToRead.id}"/>">odczytaj</a></td>
+            <td><a href="<c:url value="/message/panel/delete/${messageToRead.id}"/>">usuń</a></td>
         </tr>
     </c:forEach>
 </table>
@@ -34,6 +36,8 @@
             <td>${messageReaded.sender}</td>
             <td>${messageReaded.contents}</td>
             <td>${messageReaded.timeSending}</td>
+            <td><a href="<c:url value="/message/panel/change/${messageReaded.id}"/>">dodaj do nieprzeczytanych</a></td>
+            <td><a href="<c:url value="/message/panel/delete/${messageReaded.id}"/>">usuń</a></td>
         </tr>
     </c:forEach>
 </table>

@@ -12,6 +12,8 @@ import org.springframework.web.server.ResponseStatusException;
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -40,8 +42,8 @@ public class MessageController {
 
     @GetMapping("/panel")
     public String list(Model model) {
-
-        //
+        // do dodania sorotwanie wiad po dacie
+       //  messageRepository.findAllByReadStatus(true).sort(Comparator.comparing(Message::getTimeSending));
         model.addAttribute("messagesReaded", messageRepository.findAllByReadStatus(true));
         model.addAttribute("messagesNoReaded", messageRepository.findAllByReadStatus(false));
         return "message/panel";

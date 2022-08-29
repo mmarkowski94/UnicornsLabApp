@@ -29,6 +29,4 @@ public class Message {
     public void prePersist() {
         timeSending = LocalDateTime.now();
     }
-
-
 }
