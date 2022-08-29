@@ -20,7 +20,31 @@
             <td>${details.team}</td><br>
             Opis:
             ${details.description}<br>
-
-
+<br>
+<br>
+<br>
+<table>
+    <tr>
+        <th>Lista umiejętności</th>
+    </tr>
+    <c:forEach items="${skills}" var="skill">
+        <tr>
+            <td>${skill.name}</td>
+        </tr>
+    </c:forEach>
+</table>
+<br>
+<br>
+<br>
+<table>
+    <tr>
+        <th>Lista projektow</th>
+    </tr>
+    <c:forEach items="${user.projects}" var="project">
+        <tr>
+            <td>${project.name}</td>
+        </tr>
+    </c:forEach>
+</table>
 </body>
 </html>

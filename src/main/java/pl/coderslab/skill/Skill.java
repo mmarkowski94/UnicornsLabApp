@@ -19,6 +19,6 @@ public class Skill {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @ManyToMany(mappedBy = "skills")
-    private List<User> team = new ArrayList<>();
+    @ManyToMany(mappedBy = "skills", fetch = FetchType.EAGER)
+    private List<User> users = new ArrayList<>();
 }

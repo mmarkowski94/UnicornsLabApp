@@ -30,5 +30,6 @@ public class SkillController {
     public String deleteSkill(@PathVariable long id) {
         skillRepository.deleteById(id);
         return "redirect:/skill/list";
+        //do poprawy tam gdzie jest relacja z userem nie usuwa skilla
     }
 }

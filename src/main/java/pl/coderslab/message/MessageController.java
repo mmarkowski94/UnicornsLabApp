@@ -10,12 +10,14 @@ import org.springframework.web.server.ResponseStatusException;
 
 
 import javax.persistence.EntityNotFoundException;
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
 @RequestMapping("/message")
 @RequiredArgsConstructor
+@Transactional
 public class MessageController {
 
     private final MessageRepository messageRepository;
@@ -27,6 +29,7 @@ public class MessageController {
     }
 
     @PostMapping("/send")
+
     public String save(@ModelAttribute("message") @Valid Message message, BindingResult result) {
         if (result.hasErrors()) {
             return "message/send";
@@ -37,14 +40,48 @@ public class MessageController {
 
     @GetMapping("/panel")
     public String list(Model model) {
+
+        //
         model.addAttribute("messagesReaded", messageRepository.findAllByReadStatus(true));
         model.addAttribute("messagesNoReaded", messageRepository.findAllByReadStatus(false));
-        return "message/messagePanel";
+        return "message/panel";
     }
 
-    @GetMapping(value = "/edit/{id}")
-    public String read (@PathVariable long id) {
+    @GetMapping("/panel/change/{id}")
+    public String change(@PathVariable long id) {
+        Message messageToUpdate = messageRepository.getOne(id);
+        if (messageToUpdate.isReadStatus()) {
+            messageToUpdate.setReadStatus(false);
+        } else {
+            messageToUpdate.setReadStatus(true);
+        }
+        messageRepository.save(messageToUpdate);
+        return "redirect:/message/panel";
+    }
 
+//    @GetMapping("/panel/read/{id}")
+//    public String read(@PathVariable long id) {
+//        Message messageToUpdate = messageRepository.getOne(id);
+//        if (!messageToUpdate.isReadStatus()) {
+//            messageToUpdate.setReadStatus(true);
+//        }
+//        messageRepository.save(messageToUpdate);
+//        return "redirect:/message/panel";
+//    }
+//
+//    @GetMapping("/panel/noRead/{id}")
+//    public String noRead(@PathVariable long id) {
+//        Message messageToUpdate = messageRepository.getOne(id);
+//        if (messageToUpdate.isReadStatus()) {
+//            messageToUpdate.setReadStatus(false);
+//        }
+//        messageRepository.save(messageToUpdate);
+//        return "redirect:/message/panel";
+//    }
+
+    @GetMapping("/panel/delete/{id}")
+    public String delete(@PathVariable long id) {
+        messageRepository.deleteById(id);
         return "redirect:/message/panel";
     }
 }

@@ -77,11 +77,9 @@ public class UserController {
     @GetMapping("/panel")
     public String userPage(Model model, @SessionAttribute("loggedUser") User user) {
         model.addAttribute("user", user);
-        UserDetails userDetails = new UserDetails();
-        userDetails.setDescription(user.getDetails().getDescription());
-        userDetails.setTeam(user.getDetails().getTeam());
-        userDetails.setPosition(user.getDetails().getPosition());
-        model.addAttribute("details", userDetails);
+        model.addAttribute("details", user.getDetails());
+        model.addAttribute("skills", user.getSkills());
+        //model.addAttribute("projects",user.getProjects());
         return "user/panel";
     }
 
@@ -98,5 +96,21 @@ public class UserController {
         //dont work
     }
 
+        @GetMapping("/edit")
+        public String editProfile(Model model) {
+            model.addAttribute("user", new User());
+            return "user/edit";
+        }
 
+    //    @PostMapping("/register")
+    //    public String save(@ModelAttribute("user") @Valid User user, BindingResult result) {
+    //        if (result.hasErrors()) {
+    //            return "user/register";
+    //        }
+    //        UserDetails userDetails = new UserDetails();
+    //        userDetailsRepository.save(userDetails);
+    //        user.setDetails(userDetails);
+    //        userRepository.save(user);
+    //        return "redirect:/user/login";
+    //    }
 }

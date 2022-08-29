@@ -18,12 +18,15 @@
             <td>${project.name}</td>
             <td>${project.description}</td>
 
+       <td><a href="/project/list/${project.id}/join">Join</a></td>
 
-            <td>
-                <a href="<c:url value="/project/delete/${project.id}"/>">usuń</a>
-                <a href="<c:url value="/project/edit?id=${project.id}"/>">edytuj</a>
-            </td>
-        </tr>
+        <c:forEach items="${project.team}" var="member">
+            <tr>
+                <td>${member.name}</td>
+                <td>${member.surname}</td>
+            </tr>
+        </c:forEach>
+        <br>
     </c:forEach>
 </table>
 </body>

@@ -13,7 +13,9 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -37,14 +39,14 @@ public class User {
     @OneToOne
     @JoinColumn(name = "details_id", unique = true)
     private UserDetails details;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "users_projects",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "project_id")
     )
-    private List<Project> projects = new ArrayList<>();
-    @ManyToMany
+    private Set<Project> projects = new HashSet<>();
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "users_skills",
             joinColumns = @JoinColumn(name = "user_id"),
@@ -54,4 +56,4 @@ public class User {
 }
 
 //mail powinnen byc unikalny
-
+//#line48 Set moze byc lepszy niz list, bo ma tylko unikalne wartoci, user tez powinnen miec tylko unikalne projekty ...

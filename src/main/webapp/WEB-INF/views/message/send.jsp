@@ -6,16 +6,17 @@
 </head>
 <body>
 <form:form method="post" modelAttribute="message">
-    <label>Skontaktuj się z nami </label><br/>
-    Podaj temat wiadomości<br/>
+    <label>Skontaktuj się z nami </label><br>
+    <br>
+    Podaj temat wiadomości<br>
     <form:input path="title" />
-    <form:errors path="title"/>
+    <form:errors path="title"/><br>
     Podaj swoję imię<br/>
     <form:input path="sender"/>
-    <form:errors path="sender"/>
-    Wpisz tresć swojej wiadomości<br/>
-    <form:textarea path="contents"/>
-    <form:errors path="contents"/><br/>
+    <form:errors path="sender"/><br>
+    Wpisz tresć swojej wiadomości<br>
+    <form:textarea path="contents"/><br>
+    <form:errors path="contents"/>
     <input type="submit" value="Wyślj">
 </form:form>
 </body>

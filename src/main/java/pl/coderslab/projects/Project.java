@@ -22,6 +22,6 @@ public class Project {
     private String thePurposeOfTheProject;
     private int numberOfPeopleNeeded;
     private LocalDate startDate;
-    @ManyToMany(mappedBy = "projects")
+    @ManyToMany(mappedBy = "projects", fetch = FetchType.EAGER)
     private List<User> team = new ArrayList<>();
 }
