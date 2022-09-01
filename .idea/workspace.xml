@@ -9,14 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f3e830c0-5ddf-4b33-8c43-ae584b9f6cfb" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/editDetails.jsp" afterDir="false" />
+    <list default="true" id="f3e830c0-5ddf-4b33-8c43-ae584b9f6cfb" name="Changes" comment="edit userDetails work">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/addSkills.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/coderslab/projects/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/projects/ProjectController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/coderslab/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/user/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/coderslab/user/UserDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/user/UserDetails.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/panel.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/panel.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +221,8 @@
       <workItem from="1661965929228" duration="6800000" />
       <workItem from="1662017016655" duration="333000" />
       <workItem from="1662017506242" duration="16698000" />
-      <workItem from="1662042987777" duration="3663000" />
+      <workItem from="1662042987777" duration="8267000" />
+      <workItem from="1662066146336" duration="4640000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1661278942340</created>
@@ -300,7 +301,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662032867921</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="edit userDetails work">
+      <created>1662047209374</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1662047209374</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -325,6 +333,7 @@
     <MESSAGE value="message backend done." />
     <MESSAGE value="add user to project - work!" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="edit userDetails work" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit userDetails work" />
   </component>
 </project>

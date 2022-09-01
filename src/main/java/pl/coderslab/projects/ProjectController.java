@@ -48,7 +48,7 @@ public class ProjectController {
         projects.add(projectRepository.getOne(id));
         userToAddProject.setProjects(projects);
         userRepository.save(userToAddProject);
-        return "redirect:/project/list";
+        return "redirect:/project/" + id + "/details";
     }
 
     @GetMapping("/list/{id}/leave")

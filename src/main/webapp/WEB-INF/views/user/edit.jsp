@@ -8,6 +8,7 @@
 <form:form method="post" modelAttribute="user">
     <label>Zmień dane</label><br/>
     <form:hidden path="id"/>
+    <form:hidden path="details.id"/>
     name<br>
     <form:input path="name"/><br>
     <form:errors path="name"/>
