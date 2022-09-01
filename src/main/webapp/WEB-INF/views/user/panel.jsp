@@ -34,7 +34,7 @@
         </tr>
     </c:forEach>
 </table>
-<br>
+<li><a href="/user/editDetails">Edytuj dane szczegółowe</a></li>
 <br>
 <br>
 <table>

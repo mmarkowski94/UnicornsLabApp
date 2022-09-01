@@ -103,7 +103,6 @@ public class UserController {
     }
 
     @GetMapping("/edit")
-    @Transactional
     public String editProfile(Model model, @SessionAttribute("loggedUser") User user) {
         model.addAttribute("user", userRepository.findByEmail(user.getEmail()));
         return "user/edit";
@@ -115,6 +114,24 @@ public class UserController {
             return "user/edit";
         }
         userRepository.save(user);
+        return "redirect:/user/panel";
+    }
+
+    @GetMapping("/editDetails")
+    @Transactional
+    public String editDetails(Model model, @SessionAttribute("loggedUser") User user) {
+        UserDetails userDetailsToUpdate = userDetailsRepository.getOne(userRepository.getOne(user.getId()).
+                getDetails().getId());
+        model.addAttribute("userDetails", userDetailsToUpdate);
+        return "user/editDetails";
+    }
+
+    @PostMapping("/editDetails")
+    public String saveChangesDetails(@ModelAttribute("userDetails") @Valid UserDetails userDetails, BindingResult result) {
+        if (result.hasErrors()) {
+            return "user/editDetails";
+        }
+        userDetailsRepository.save(userDetails);
         return "redirect:/user/panel";
     }
 

@@ -6,6 +6,7 @@ import lombok.ToString;
 import pl.coderslab.projects.Project;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,9 +19,11 @@ public class UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotEmpty 
     private String position = "";
+    @NotEmpty
     private String team = "";
+    @NotEmpty
     private String description = "";
-    //lepszy widok np.brak informacji zmiar "" mozna zrobic z poziomu frontu
 }
 
