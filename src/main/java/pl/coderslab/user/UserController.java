@@ -103,9 +103,9 @@ public class UserController {
     }
 
     @GetMapping("/edit")
-    public String editProfile(@SessionAttribute("loggedUser") User user, Model model) {
-       // User userToEdit = userRepository.getOne(user.getId());
-        model.addAttribute("user", user);
+    @Transactional
+    public String editProfile(Model model, @SessionAttribute("loggedUser") User user) {
+        model.addAttribute("user", userRepository.findByEmail(user.getEmail()));
         return "user/edit";
     }
 
