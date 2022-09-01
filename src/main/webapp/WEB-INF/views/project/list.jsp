@@ -8,26 +8,20 @@
 <body>
 <table>
     <tr>
-        <th>name</th>
-        <th>description</th>
-        <th>team</th>
+        <th>Nazwa</th>
+        <th>Opis</th>
 
     </tr>
     <c:forEach items="${projects}" var="project">
-        <tr>
-            <td>${project.name}</td>
-            <td>${project.description}</td>
+    <tr>
+        <td>${project.name}</td>
+        <td>${project.description}</td>
 
-       <td><a href="/project/list/${project.id}/join">Join</a></td>
-
-        <c:forEach items="${project.team}" var="member">
-            <tr>
-                <td>${member.name}</td>
-                <td>${member.surname}</td>
-            </tr>
-        </c:forEach>
+        <td><a href="/project/list/${project.id}/join">dołącz</a></td>
+        <td><a href="/project/list/${project.id}/leave">zrezygnuj</a></td>
+        <td><a href="/project/${project.id}/details">więcej</a></td>
         <br>
-    </c:forEach>
+        </c:forEach>
 </table>
 </body>
 </html>

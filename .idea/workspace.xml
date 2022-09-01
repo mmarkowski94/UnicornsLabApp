@@ -9,15 +9,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f3e830c0-5ddf-4b33-8c43-ae584b9f6cfb" name="Changes" comment="message backend done.">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/project/add.jsp" afterDir="false" />
+    <list default="true" id="f3e830c0-5ddf-4b33-8c43-ae584b9f6cfb" name="Changes" comment="add user to project - work!">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/project/details.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/project/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/view.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/coderslab/message/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/message/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/coderslab/message/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/message/MessageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/coderslab/projects/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/projects/Project.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/coderslab/projects/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/projects/ProjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/coderslab/skill/SkillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/skill/SkillController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/coderslab/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/user/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/message/panel.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/message/panel.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/message/typ.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/message/typ.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/project/add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/project/add.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/project/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/project/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/list.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/panel.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/panel.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/register.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +74,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2Dco9mxxTVI48LPOPOe0fz4wsF4" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -214,7 +226,12 @@
       <workItem from="1661606137380" duration="17292000" />
       <workItem from="1661719366113" duration="7246000" />
       <workItem from="1661794030707" duration="430000" />
-      <workItem from="1661794664387" duration="10662000" />
+      <workItem from="1661794664387" duration="10890000" />
+      <workItem from="1661890501887" duration="688000" />
+      <workItem from="1661891346205" duration="9166000" />
+      <workItem from="1661965929228" duration="6800000" />
+      <workItem from="1662017016655" duration="333000" />
+      <workItem from="1662017506242" duration="13218000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1661278942340</created>
@@ -272,7 +289,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661800072157</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="add user to project - work!">
+      <created>1661813557138</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1661813557138</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -295,6 +319,7 @@
     <MESSAGE value="message panel - in progress." />
     <MESSAGE value="logowanie - done&#10;ylogowanie - in progress." />
     <MESSAGE value="message backend done." />
-    <option name="LAST_COMMIT_MESSAGE" value="message backend done." />
+    <MESSAGE value="add user to project - work!" />
+    <option name="LAST_COMMIT_MESSAGE" value="add user to project - work!" />
   </component>
 </project>

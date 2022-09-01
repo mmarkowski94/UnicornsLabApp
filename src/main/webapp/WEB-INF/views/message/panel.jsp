@@ -2,23 +2,29 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Wiadomości</title>
 </head>
 <body>
 <table>
     <tr>
         <th>Nieprzeczytane</th>
-
+    <tr>
+        <th>Tytuł</th>
+        <th>Nadawca</th>
+        <th>Treść</th>
+        <th>Data</th>
 
     </tr>
-    <c:forEach items="${messagesNoReaded}" var="messageToRead">
+
+    </tr>
+    <c:forEach items="${messagesNoRead}" var="messageNoRead">
         <tr>
-            <td>${messageToRead.title}</td>
-            <td>${messageToRead.sender}</td>
-            <td>${messageToRead.contents}</td>
-            <td>${messageToRead.timeSending}</td>
-            <td><a href="<c:url value="/message/panel/change/${messageToRead.id}"/>">odczytaj</a></td>
-            <td><a href="<c:url value="/message/panel/delete/${messageToRead.id}"/>">usuń</a></td>
+            <td>${messageNoRead.title}</td>
+            <td>${messageNoRead.sender}</td>
+            <td>${messageNoRead.contents}</td>
+            <td>${messageNoRead.timeSending}</td>
+            <td><a href="<c:url value="/message/panel/change/${messageNoRead.id}"/>">odczytaj</a></td>
+            <td><a href="<c:url value="/message/panel/delete/${messageNoRead.id}"/>">usuń</a></td>
         </tr>
     </c:forEach>
 </table>
@@ -26,18 +32,23 @@
 <table>
     <tr>
         <th>Przeczytane</th>
-
+    <tr>
+        <th>Tytuł</th>
+        <th>Nadawca</th>
+        <th>Treść</th>
+        <th>Data</th>
+    </tr>
 
     </tr>
-    <c:forEach items="${messagesReaded}" var="messageReaded">
+    <c:forEach items="${messagesRead}" var="messageRead">
         <tr>
 
-            <td>${messageReaded.title}</td>
-            <td>${messageReaded.sender}</td>
-            <td>${messageReaded.contents}</td>
-            <td>${messageReaded.timeSending}</td>
-            <td><a href="<c:url value="/message/panel/change/${messageReaded.id}"/>">dodaj do nieprzeczytanych</a></td>
-            <td><a href="<c:url value="/message/panel/delete/${messageReaded.id}"/>">usuń</a></td>
+            <td>${messageRead.title}</td>
+            <td>${messageRead.sender}</td>
+            <td>${messageRead.contents}</td>
+            <td>${messageRead.timeSending}</td>
+            <td><a href="<c:url value="/message/panel/change/${messageRead.id}"/>">dodaj do nieprzeczytanych</a></td>
+            <td><a href="<c:url value="/message/panel/delete/${messageRead.id}"/>">usuń</a></td>
         </tr>
     </c:forEach>
 </table>

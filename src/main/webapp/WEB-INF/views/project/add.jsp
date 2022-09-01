@@ -1,16 +1,23 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: mmarkowski
-  Date: 29.08.2022
-  Time: 23:41
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Dodaj projekt</title>
 </head>
 <body>
-
+<form:form method="post" modelAttribute="project">
+    <label>Opisz nowy projekt</label><br/><br>
+    nazwa
+    <form:input path="name" />
+    <form:errors path="name"/><br>
+    opis<br>
+    <form:textarea path="description"/>
+    <form:errors path="description"/><br>
+    cel projektu<br>
+    <form:input path="thePurposeOfTheProject"/>
+    <form:errors path="thePurposeOfTheProject"/><br>
+    Wymagana ilość osob<br>
+    <input type="submit" value="Save">
+</form:form>
 </body>
 </html>

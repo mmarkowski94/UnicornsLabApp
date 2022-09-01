@@ -5,23 +5,16 @@
     <title>Title</title>
 </head>
 <body>
-<p>panel</p>
-<p>Cześć ${user.name}</p>
-
-
-            Twoj profil<br>
+${user.surname}
+${user.name}<br>
 <br>
-
-
-
-            Stanowisko:
-            <td>${details.position}</td><br>
-            Zespoł:
-            <td>${details.team}</td><br>
-            Opis:
-            ${details.description}<br>
+Stanowisko:
+<td>${details.position}</td><br>
+Zespoł:
+<td>${details.team}</td><br>
+Opis:
+${details.description}<br>
 <br>
-<li><a href="/user/edit">Edytuj dane</a></li>
 <br>
 <br>
 <table>
@@ -47,5 +40,6 @@
         </tr>
     </c:forEach>
 </table>
+</body>
 </body>
 </html>

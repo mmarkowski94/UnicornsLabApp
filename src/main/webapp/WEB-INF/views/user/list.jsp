@@ -22,8 +22,8 @@
 
 
             <td>
-                <a href="<c:url value="/user/delete/${user.id}"/>">usuń</a>
-                <a href="<c:url value="/user/edit?id=${user.id}"/>">edytuj</a>
+                <a href="<c:url value="/user/delete/${user.id}"/>">Usuń</a>
+                <a href="<c:url value="/user/${user.id}/details"/>">Szczegoły</a>
             </td>
         </tr>
     </c:forEach>

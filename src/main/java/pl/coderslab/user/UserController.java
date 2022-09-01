@@ -8,6 +8,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.WebApplicationContext;
+import pl.coderslab.skill.Skill;
+import pl.coderslab.skill.SkillRepository;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -22,7 +24,6 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @SessionAttributes("loggedUser")
 public class UserController {
-
 
     private final UserRepository userRepository;
     private final UserDetailsRepository userDetailsRepository;
@@ -83,8 +84,9 @@ public class UserController {
         model.addAttribute("user", userData);
         model.addAttribute("details", userData.getDetails());
         model.addAttribute("skills", userData.getSkills());
-        model.addAttribute("projects",userData.getProjects());
+        model.addAttribute("projects", userData.getProjects());
         return "user/panel";
+        //do sprawdzenia czy to mozna jedna linia zrobic
     }
 
     @ExceptionHandler(ServletRequestBindingException.class)
@@ -100,21 +102,30 @@ public class UserController {
         //dont work
     }
 
-        @GetMapping("/edit")
-        public String editProfile(Model model) {
-            model.addAttribute("user", new User());
+    @GetMapping("/edit")
+    public String editProfile(@SessionAttribute("loggedUser") User user, Model model) {
+       // User userToEdit = userRepository.getOne(user.getId());
+        model.addAttribute("user", user);
+        return "user/edit";
+    }
+
+    @PostMapping("/edit")
+    public String saveChanges(@ModelAttribute("user") @Valid User user, BindingResult result) {
+        if (result.hasErrors()) {
             return "user/edit";
         }
+        userRepository.save(user);
+        return "redirect:/user/panel";
+    }
 
-    //    @PostMapping("/register")
-    //    public String save(@ModelAttribute("user") @Valid User user, BindingResult result) {
-    //        if (result.hasErrors()) {
-    //            return "user/register";
-    //        }
-    //        UserDetails userDetails = new UserDetails();
-    //        userDetailsRepository.save(userDetails);
-    //        user.setDetails(userDetails);
-    //        userRepository.save(user);
-    //        return "redirect:/user/login";
-    //    }
+    @GetMapping("/{id}/details")
+    @Transactional
+    public String userDetails(Model model, @PathVariable Long id) {
+        User userView = userRepository.getOne(id);
+        model.addAttribute("user", userView);
+        model.addAttribute("details", userView.getDetails());
+        model.addAttribute("skills", userView.getSkills());
+        model.addAttribute("projects", userView.getProjects());
+        return "user/view";
+    }
 }
