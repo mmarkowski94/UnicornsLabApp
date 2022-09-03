@@ -7,12 +7,15 @@
 <body>
 <p>panel</p>
 <p>Cześć ${user.name}</p>
-
-
-            Twoj profil<br>
+Twoj profil<br>
 <br>
-
-
+Imię:<td>${user.name}</td><br>
+Nazwisko:<td>${user.surname}</td><br>
+Mail:<td>${user.email}</td><br>
+<br>
+<br>
+<a href="/user/edit">Edytuj dane</a></li>
+<br>
 
             Stanowisko:
             <td>${details.position}</td><br>
@@ -21,7 +24,8 @@
             Opis:
             ${details.description}<br>
 <br>
-<li><a href="/user/edit">Edytuj dane</a></li>
+
+<a href="/user/editDetails">Edytuj dane szczegółowe</a></li>
 <br>
 <br>
 <table>
@@ -34,7 +38,7 @@
         </tr>
     </c:forEach>
 </table>
-<li><a href="/user/editDetails">Edytuj dane szczegółowe</a></li>
+<a href="/skill/list">dodaj umiejętności</a></li>
 <br>
 <br>
 <table>
@@ -46,6 +50,12 @@
             <td>${project.name}</td>
         </tr>
     </c:forEach>
+    <a href="/skill/list">Dołącz do projektów</a></li>
+    <br>
+    <c:if test= "${user.isAdmin} == true}">
+        <li><a href="/skill/admin/list">Lista umiejętności</a></li>
+        <li><a href="/message/panel">Wiadomości</a></li>
+    </c:if>
 </table>
 </body>
 </html>

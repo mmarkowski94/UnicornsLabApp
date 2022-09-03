@@ -32,6 +32,7 @@ public class User {
     private String surname;
     @Email
     @NotEmpty
+    @Column(unique = true)
     private String email;
     @NotEmpty
     private String password;
@@ -52,8 +53,7 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "skill_id")
     )
-    private List<Skill> skills = new ArrayList<>();
+    private Set<Skill> skills = new HashSet<>();
 }
 
-//mail powinnen byc unikalny
-//#line48 Set moze byc lepszy niz list, bo ma tylko unikalne wartoci, user tez powinnen miec tylko unikalne projekty ...
+

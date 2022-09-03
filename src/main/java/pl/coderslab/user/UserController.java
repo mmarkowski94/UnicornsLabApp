@@ -1,6 +1,7 @@
 package pl.coderslab.user;
 
 import lombok.RequiredArgsConstructor;
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,6 +43,7 @@ public class UserController {
         UserDetails userDetails = new UserDetails();
         userDetailsRepository.save(userDetails);
         user.setDetails(userDetails);
+        user.setPassword(BCrypt.hashpw(user.getPassword(),BCrypt.gensalt()));
         userRepository.save(user);
         return "redirect:/user/login";
     }
@@ -69,7 +71,8 @@ public class UserController {
                         Model model) {
 
         if (userRepository.existsByEmail(email)) {
-            if (userRepository.findByEmail(email).getPassword().equals(password)) {
+            User user = userRepository.findByEmail(email);
+            if (BCrypt.checkpw(password, user.getPassword())) {
                 model.addAttribute("loggedUser", userRepository.findByEmail(email));
                 return "redirect:/";
             }
@@ -86,7 +89,6 @@ public class UserController {
         model.addAttribute("skills", userData.getSkills());
         model.addAttribute("projects", userData.getProjects());
         return "user/panel";
-        //do sprawdzenia czy to mozna jedna linia zrobic
     }
 
     @ExceptionHandler(ServletRequestBindingException.class)
@@ -96,7 +98,7 @@ public class UserController {
     }
 
     @GetMapping("/logout")
-    public String logout(HttpSession session) {
+    public String logout(HttpSession session, @SessionAttribute("loggedUser") User user) {
         session.invalidate();
         return "redirect:/";
         //dont work

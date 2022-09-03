@@ -22,6 +22,7 @@ public class Project {
     @NotEmpty
     private String name;
     @NotEmpty
+    @Column(length = 2000) // not work?
     private String description;
     @NotEmpty
     private String thePurposeOfTheProject;

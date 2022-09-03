@@ -1,31 +1,31 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Dodaj umiejętności</title>
 </head>
 <body>
 
-    <table>
+<tr>
+    <th>Twoje umiejętności</th>
+</tr>
+<c:forEach items="${currentSkills}" var="currentSkill">
+    <p> ${currentSkill.name}</p>
+</c:forEach>
+
+<table>
+    <tr>
+        <th>Dodaj umiejętności</th>
+    </tr>
+    <c:forEach items="${skills}" var="skill">
         <tr>
-            <th>Lista umiejętności</th>
-
-
+            <td>${skill.name}</td>
+            <td>
+                <a href="/skill/list/${skill.id}/add">Dodaj umiejętnośc</a>
+                <a href="/skill/list/${skill.id}/delete">Usuń umiejętnośc</a>
+            </td>
         </tr>
-        <c:forEach items="${skills}" var="skill">
-            <tr>
-                <td>${skill.name}</td>
-                <td>
-                    <a href="<c:url value="/skill/delete/${skill.id}"/>">usuń</a>
-                </td>
-            </tr>
-        </c:forEach>
-    </table>
-
-<form method="post" action="/skill/list">
-    <label for="skill">Wpisz nazwę umiejętności którą chcesz dodać</label>
-    <input id="skill" type="text" name="skill"/>
-    <input type="submit"/>
-</form>
+    </c:forEach>
+</table>
 </body>
 </html>
