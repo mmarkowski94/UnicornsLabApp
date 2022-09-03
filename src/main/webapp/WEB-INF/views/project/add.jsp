@@ -17,6 +17,8 @@
     <form:input path="thePurposeOfTheProject"/>
     <form:errors path="thePurposeOfTheProject"/><br>
     Wymagana ilość osob<br>
+    <form:input type = "number"  min="1" path="numberOfPeopleNeeded"/>
+    <form:errors path="numberOfPeopleNeeded"/>
     <input type="submit" value="Save">
 </form:form>
 </body>

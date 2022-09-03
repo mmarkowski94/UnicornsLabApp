@@ -23,5 +23,6 @@
         <br>
         </c:forEach>
 </table>
+<a href="/project/add">Dodaj nowy projekt</a>
 </body>
 </html>

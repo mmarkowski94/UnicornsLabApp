@@ -13,7 +13,6 @@
     <maven.compiler.target>11</maven.compiler.target>
     <org.springframework.version>5.3.13</org.springframework.version>
   </properties>
-
   <dependencies>
     <dependency>
       <groupId>org.projectlombok</groupId>

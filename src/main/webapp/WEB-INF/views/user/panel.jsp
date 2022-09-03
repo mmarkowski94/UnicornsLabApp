@@ -50,12 +50,13 @@ Mail:<td>${user.email}</td><br>
             <td>${project.name}</td>
         </tr>
     </c:forEach>
-    <a href="/skill/list">Dołącz do projektów</a></li>
-    <br>
-    <c:if test= "${user.isAdmin} == true}">
-        <li><a href="/skill/admin/list">Lista umiejętności</a></li>
-        <li><a href="/message/panel">Wiadomości</a></li>
-    </c:if>
 </table>
+<a href="/skill/list">Dołącz do projektów</a>
+<br>
+<br>
+<%--    <c:if test= "${user.isAdmin.equals('true')}">--%>
+<a href="/skill/admin/list">Lista umiejętności</a><br>
+<a href="/message/panel">Wiadomości</a>
+<%--    </c:if>--%>
 </body>
 </html>
